@@ -8,7 +8,7 @@ spring:
     name: abcmsc-config-dev
   profiles: dev
 
-----
+---
 #测试环境
 spring:
   application:
