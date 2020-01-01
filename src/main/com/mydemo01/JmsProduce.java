@@ -6,8 +6,6 @@ import javax.jms.*;
 
 public class JmsProduce {
 
-
-
     public static void main(String[] args) throws JMSException {
         //创建连接工厂
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory("tcp://47.93.206.135:61616");
