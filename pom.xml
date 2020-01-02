@@ -17,10 +17,12 @@
       <version>5.15.11</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.apache.xbean</groupId>
-      <artifactId>xbean-spring</artifactId>
-    </dependency>
+
+      <dependency>
+          <groupId>org.apache.xbean</groupId>
+          <artifactId>xbean-spring</artifactId>
+          <version>4.15</version>
+      </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -33,16 +35,45 @@
       <artifactId>logback-classic</artifactId>
       <version>1.2.3</version>
     </dependency>
+
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+      <version>1.18.10</version>
       <scope>provided</scope>
     </dependency>
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
     </dependency>
-
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>aliyun</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>aliyun-plugin</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
