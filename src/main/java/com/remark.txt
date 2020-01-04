@@ -1,0 +1,22 @@
+创建session
+   Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
+   第一个参数：是否开始事务
+   第二个参数：签收方式
+        签收方式的类型
+            自动签收(默认机制)  AUTO_ACKNOWLEDGE
+            手动签收    Session.CLIENT_ACKNOWLEDGE
+            允许重复消息  Session.DUPS_OK_ACKNOWLEDGE
+
+非事务下的签收
+    如果在创建session时，不以事务方式进行提交，
+    那么当消费者的签收方式是手动签收时，则必须使用message.acknowledge();进行确认
+ 事务方式下的签收
+    如果生产者端使用事务进行提交，签收机制是手动提交。消费者端开启事务，并且使用commit()。使用手动签收机制
+    ，但是不调用message.acknowledge()方法， 依然不会造成重复消费
+    如果生产者端使用事务进行提交，签收机制是手动提交。。消费者端开启事务，不使用使用commit()。使用手动签收机制
+    ，调用message.acknowledge()方法， 会造成重复消费
+  总结
+    当开始事务之后，使用commit默认会认为是手动签收。所以不会造成重复消费
+
+在事务性会话中，当一个事务被成功提交则消息被自动签收，如果事务回滚，则消息再次被传送
+非事务会话中，消息何时被确认取决于创建会话时的应答模式

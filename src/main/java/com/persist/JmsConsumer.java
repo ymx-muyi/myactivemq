@@ -5,7 +5,12 @@ import org.apache.activemq.broker.region.TopicSubscription;
 
 import javax.jms.*;
 
-public class JmsConsumer {
+/**
+ * 发布订阅类似于公众号订阅
+ *一定要先运行一次消费者，等于向mq注册。类似我订阅了这个主题
+ * 2.然后生产者发送消息
+ * 3.无论消费者是否在线  ，都会接受到
+ */public class JmsConsumer {
 
     public static void main(String[] args) throws JMSException {
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory("tcp://47.93.206.135:61616");
