@@ -3,7 +3,11 @@ package com.topic;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
-
+/**
+ * 非持久化订阅
+ * 不能恢复或重新派送一个为签收的消息
+ * 也就是消费者必须在发送者之前启动
+ */
 public class JmsProduce {
 
     public static void main(String[] args) throws JMSException {

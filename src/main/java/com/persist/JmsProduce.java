@@ -4,6 +4,9 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
+/**
+ * 持久订阅
+ */
 public class JmsProduce {
 
     public static void main(String[] args) throws JMSException {

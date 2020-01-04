@@ -5,7 +5,7 @@ import org.apache.activemq.broker.region.TopicSubscription;
 
 import javax.jms.*;
 
-/**
+/**  持久订阅
  * 发布订阅类似于公众号订阅
  *一定要先运行一次消费者，等于向mq注册。类似我订阅了这个主题
  * 2.然后生产者发送消息
