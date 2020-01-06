@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!--开启包的自动扫描-->
+	<context:component-scan base-package="com.spring"/>
+	<!--配置生产者-->
+	<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+		<property name="connectionFactory">
+			<!--真正可以产生Connection的connectionfactory,由对应的jms服务厂商提供-->
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="tcp://47.93.206.135:61616"></property>
+			</bean>
+		</property>
+		<property name="maxConnections" value="100"></property>
+	</bean>
+
+	<!--队列的目的地,点对点的-->
+	<bean id="destinationQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<!--构造注入 spring-active-queue:队列名称 -->
+		<constructor-arg index="0" value="spring-active-queue"></constructor-arg>
+	</bean>
+<!--主题-->
+	<bean id="destinationTopic" class="org.apache.activemq.command.ActiveMQQueue">
+		<!--构造注入 spring-active-topic主题名称 -->
+		<constructor-arg index="0" value="spring-active-topic"></constructor-arg>
+	</bean>
+
+	<!--spring提供的Jms工具类，它可以进行消息发送，接收等-->
+	<bean id="JmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="jmsFactory"></property>
+		<!--defaultDestination:目的地名称
+		destinationTopic:引用
+		-->
+		<property name="defaultDestination" ref="destinationTopic"></property>
+		<property name="messageConverter">
+			<bean class="org.springframework.jms.support.converter.SimpleMessageConverter"></bean>
+		</property>
+	</bean>
+
+	<!--配置监听程序-->
+	<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsFactory"></property>
+		<property name="destination" ref="destinationTopic"></property>
+		<!--创建一个myMessageListener实现messageListener接口，完成注入-->
+		<property name="messageListener" ref="myMessageListener"></property>
+	</bean>
+
+
+</beans>
