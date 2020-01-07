@@ -1,6 +1,6 @@
-package com.activemq.produce;
+package com.springboot.activemq.springboot_activemq;
 
-import com.activemq.produce.config.Queue_Produce;
+import com.springboot.activemq.springboot_activemq.config.Queue_Produce;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.activemq.produce.config;
+package com.springboot.activemq.springboot_activemq.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;

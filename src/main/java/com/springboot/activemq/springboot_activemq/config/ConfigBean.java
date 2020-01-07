@@ -1,4 +1,4 @@
-package com.activemq.produce.config;
+package com.springboot.activemq.springboot_activemq.config;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Value;

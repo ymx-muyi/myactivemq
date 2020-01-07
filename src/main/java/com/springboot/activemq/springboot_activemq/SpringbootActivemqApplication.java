@@ -1,4 +1,4 @@
-package com.activemq.produce;
+package com.springboot.activemq.springboot_activemq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
