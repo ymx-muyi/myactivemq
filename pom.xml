@@ -18,11 +18,11 @@
     </dependency>
 
 
-      <dependency>
-          <groupId>org.apache.xbean</groupId>
-          <artifactId>xbean-spring</artifactId>
-          <version>4.15</version>
-      </dependency>
+    <dependency>
+      <groupId>org.apache.xbean</groupId>
+      <artifactId>xbean-spring</artifactId>
+      <version>4.15</version>
+    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
