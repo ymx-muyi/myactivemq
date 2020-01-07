@@ -1,0 +1,23 @@
+#1.设置端口
+#2.设置activemq地址用户名，密码
+#3.设置队列名称
+#4.配置bean
+#5.设置生产者
+#6.在configBean里面加上@EnableJms
+#7
+
+#设置端口
+server:
+  port: 8888
+
+spring:
+  activemq:
+    broker-url: tcp://47.93.206.135:61616 #activemq地址
+    user: admin #用户名
+    password: admin #密码
+  jms:
+    pub-sub-domain: false  # false = Queue  true=Topic。默认为false
+
+#自己定义队列名称
+myqueue: boot-activemq-queue
+
