@@ -1,23 +1,35 @@
-#1.ÉèÖÃ¶Ë¿Ú
-#2.ÉèÖÃactivemqµØÖ·ÓÃ»§Ãû£¬ÃÜÂë
-#3.ÉèÖÃ¶ÓÁĞÃû³Æ
-#4.ÅäÖÃbean
-#5.ÉèÖÃÉú²úÕß
-#6.ÔÚconfigBeanÀïÃæ¼ÓÉÏ@EnableJms
-#7
+#1.è®¾ç½®ç«¯å£
+#2.è®¾ç½®activemqåœ°å€ç”¨æˆ·åï¼Œå¯†ç 
+#3.è®¾ç½®é˜Ÿåˆ—åç§°
+#4.é…ç½®bean
+#5.è®¾ç½®ç”Ÿäº§è€…
+#6.åœ¨configBeané‡Œé¢åŠ ä¸Š@EnableJms
+#è®¾ç½®ç«¯å£
+#=====================ç‚¹å¯¹ç‚¹======================================
+#server:
+#  port: 8888
+#spring:
+#  activemq:
+#    broker-url: tcp://47.93.206.135:61616 #activemqåœ°å€
+#    user: admin #ç”¨æˆ·å
+#    password: admin #å¯†ç 
+#  jms:
+#    pub-sub-domain: false  # false = Queue  true=Topicã€‚é»˜è®¤ä¸ºfalse
+#
+##è‡ªå·±å®šä¹‰é˜Ÿåˆ—åç§°
+#myqueue: boot-activemq-queue
 
-#ÉèÖÃ¶Ë¿Ú
 server:
-  port: 8888
-
+  port: 2222
 spring:
   activemq:
-    broker-url: tcp://47.93.206.135:61616 #activemqµØÖ·
-    user: admin #ÓÃ»§Ãû
-    password: admin #ÃÜÂë
+    broker-url: tcp://47.93.206.135:61616 #activemqåœ°å€
+    user: admin #ç”¨æˆ·å
+    password: admin #å¯†ç 
   jms:
-    pub-sub-domain: false  # false = Queue  true=Topic¡£Ä¬ÈÏÎªfalse
+    pub-sub-domain: true  # false = Queue  true=Topicã€‚é»˜è®¤ä¸ºfalse
 
-#×Ô¼º¶¨Òå¶ÓÁĞÃû³Æ
+#è‡ªå·±å®šä¹‰é˜Ÿåˆ—åç§°
+mytopic: boot-activemq-mytopic
 myqueue: boot-activemq-queue
 

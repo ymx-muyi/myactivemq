@@ -1,6 +1,7 @@
 package com.springboot.activemq.springboot_activemq;
 
 import com.springboot.activemq.springboot_activemq.config.Queue_Produce;
+import com.springboot.activemq.springboot_activemq.config.Topic_Produce;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,9 +18,19 @@ class SpringbootActivemqApplicationTests {
     @Resource
     private Queue_Produce queue_produce;
 
+    @Resource
+    private Topic_Produce topic_produce;
+
     @Test
     void testsend() {
         queue_produce.produceMsg();
     }
+
+   /* @Test
+    void testTopicsend() {
+        topic_produce.produceMsg();
+    }*/
+
+
 
 }
