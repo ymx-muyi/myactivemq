@@ -15,8 +15,8 @@ public class JmsProduce {
         Connection connection = activeMQConnectionFactory.createConnection();
         connection.start();
         //创建session，设置事务和签收方式 设置为true开启事务
-        Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
-        Queue queue = session.createQueue("test-01");
+       Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
+        Queue queue = session.createQueue("test-03");
         MessageProducer messageProducer = session.createProducer(queue);
         //DeliveryMode.PERSISTENT  代表持久化
         //DeliveryMode.NON_PERSISTENT  不持久化

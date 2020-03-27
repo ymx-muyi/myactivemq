@@ -20,18 +20,23 @@ public class JmsConsumer {
         connection.start();
         //第一个参数为是否开始事务
         //第二个为签收类型
-        Session session = connection.createSession(true,Session.AUTO_ACKNOWLEDGE);
+        //Session session = connection.createSession(true,Session.AUTO_ACKNOWLEDGE);
+        Session session = connection.createSession(true,Session.CLIENT_ACKNOWLEDGE);
         //创建目的地
-        Queue queue = session.createQueue("test-01");
+        Queue queue = session.createQueue("test-03");
         //创建消息的消费者
         MessageConsumer consumer = session.createConsumer(queue);
         //第一种
-        /*while(true){
+        while(true){
             TextMessage msg = (TextMessage) consumer.receive();
             System.out.println(msg);
-        }*/
+           /* session.commit();*/
+           // session.recover();//相当于roblack会进行重发
+
+
+        }
         //第二种使用监听
-        consumer.setMessageListener((message) -> {
+       /* consumer.setMessageListener((message) -> {
             if(message!=null && message instanceof TextMessage ){
                 try {
                     System.out.println(((TextMessage) message).getText());
@@ -39,10 +44,10 @@ public class JmsConsumer {
                     e.printStackTrace();
                 }
             }
-        });
-        session.commit();
-        session.close();
-        connection.close();
+        });*/
+
+      //  session.close();
+       // connection.close();
 
 
     }
